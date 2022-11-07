@@ -1,0 +1,26 @@
+main{
+    width: 1000px;
+    margin: auto;
+}
+
+.sessao_1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sessao_1 h1{
+    margin-bottom: 35px;
+}
+
+.sessao_2{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sessao_2 img{
+    width: 100px;
+    height: 100px;
+}

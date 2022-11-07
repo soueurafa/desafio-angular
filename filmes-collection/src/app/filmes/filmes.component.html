@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+<app-nav></app-nav>
+
+<main>
+
+    <div class="titulo_e_logo">
+        <h2>Filmes</h2>
+        <img src="../../assets/img/cinema 1.png" alt="Logo filmes">
+    </div>
+
+    <div>
+
+        <b>Cadastras Filmes</b>
+
+        <div class="cadastras_filmes">
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="tamanho_input" appearance="fill">
+                            <mat-label>Título do Filme</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </td>
+            </table>
+
+            <div>
+                <mat-form-field appearance="fill" class="tamanho_input">
+                    <mat-label>Gênero</mat-label>
+                    <mat-select disableRipple>
+                        <mat-option value="terror">Terror</mat-option>
+                        <mat-option value="ação">Ação</mat-option>
+                        <mat-option value="comedia">Comédia</mat-option>
+                        <mat-option value="romance">Romance</mat-option>
+                        <mat-option value="suspense">Suspense</mat-option>
+                        <mat-option value="ficçao_cientifica">ficção científica</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button class="botao">Salvar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="filmes_geral">
+
+        <div class="filmes">
+
+            <div>
+                <div>
+                    <p>Os outros</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p>Terror</p>
+                </div>
+            </div>
+
+            <div>
+                <button mat-raised-button class="editar">Editar</button>
+                <button mat-raised-button class="excluir">Excluir</button>
+            </div>
+
+        </div>
+
+        <div class="filmes">
+
+            <div>
+                <div>
+                    <p>Até o último homem</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p>Ação</p>
+                </div>
+            </div>
+
+            <div>
+                <button mat-raised-button class="editar">Editar</button>
+                <button mat-raised-button class="excluir">Excluir</button>
+            </div>
+
+        </div>
+
+        <div class="filmes">
+
+            <div>
+                <div>
+                    <p>O máscara</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p>Comédia</p>
+                </div>
+            </div>
+
+            <div>
+                <button mat-raised-button class="editar">Editar</button>
+                <button mat-raised-button class="excluir">Excluir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+<app-footer></app-footer>

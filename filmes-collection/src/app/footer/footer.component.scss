@@ -1,0 +1,39 @@
+footer {
+    background-color: #F6511D;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamanho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 15%;
+}
+
+.linha {
+    width: 3px;
+    height: 75%;
+    margin-right: 30px;
+    background-color: white;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.logo_footer img{
+    width: 177px;
+    height: 62px;
+}
+
+.footer_texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.contato_texto {
+    color: white;
+    margin-bottom: 10px;
+}

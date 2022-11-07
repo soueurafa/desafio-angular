@@ -1,0 +1,56 @@
+main{
+    width: 1000px;
+    margin: auto;
+}
+
+.titulo_e_logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.titulo_e_logo img{
+    width: 100px;
+    height: 100px;
+}
+
+.cadastras_genero{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tamanho_input{
+    width: 400px;
+    height: 58px;
+}
+.botao {
+    background: #F6511D;
+    color: white;
+    width: 180px;
+    height: 50px;
+    font-size: large;
+    border-radius: 20px;
+}
+
+.filmes{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.editar{
+    background-color: #F6511D;
+    color: white;
+}
+
+.excluir{
+    margin-left: 5px;
+    background-color: #45abc2;
+}
+
+.filmes_geral{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

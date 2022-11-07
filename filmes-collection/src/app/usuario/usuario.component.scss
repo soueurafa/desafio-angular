@@ -1,0 +1,55 @@
+main{
+    width: 1000px;
+    margin: auto;
+}
+
+.titulo_cadastro{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+.botao{
+    background: #F6511D;
+    color: white;
+    margin-top: 20px;
+}
+
+.usuarios{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.usuarios p{
+    width: 150px;
+    height: 10px;
+}
+
+.editar{
+    background-color: #F6511D;
+    color: white;
+}
+
+.excluir{
+    margin-left: 5px;
+    background-color: #45abc2;
+}
+
+.usuarios_geral{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
