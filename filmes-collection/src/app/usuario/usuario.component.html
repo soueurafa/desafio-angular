@@ -6,130 +6,87 @@
 
     <h2 class="titulo_cadastro">Cadastro</h2>
 
-    <div class="inputs">
+    <form [formGroup]="form">
 
-        <table cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field appearance="fill">
-                        <mat-label class="nome">Nome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-        </table>
+        <div class="inputs">
 
-        <table cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field appearance="fill">
-                        <mat-label class="email">Email</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-        </table>
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label class="nome">Nome</mat-label>
+                            <input matInput formControlName="nome" required>
+                        </mat-form-field>
+                    </td>
+            </table>
 
-        <table cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field appearance="fill">
-                        <mat-label class="telefone">Telefone
-                        </mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-        </table>
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label class="email">Email</mat-label>
+                            <input matInput formControlName="email" required>
+                        </mat-form-field>
+                    </td>
+            </table>
+
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label class="telefone">Telefone
+                            </mat-label>
+                            <input matInput formControlName="numero" required>
+                        </mat-form-field>
+                    </td>
+            </table>
 
 
-    </div>
-
-    <div class="button">
-        <button mat-raised-button class="botao">Cadastrar</button>
-    </div>
-    
-        <div class="usuarios_geral">
-
-            <div class="usuarios">
-    
-                <div>
-                    <div>
-                        <p>Paulo Andre</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <p>paulo@email.com</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <p>3349 6788</p>
-                    </div>
-                </div>
-
-                <div>
-                    <button mat-raised-button class="editar">Editar</button>
-                    <button mat-raised-button class="excluir">Excluir</button>
-                </div>
-    
-            </div>
-    
-            <div class="usuarios">
-    
-                <div>
-                    <div>
-                        <p>Marcos Lucio</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <p>marcos@email.com</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <p>3349 6788</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <button mat-raised-button class="editar">Editar</button>
-                    <button mat-raised-button class="excluir">Excluir</button>
-                </div>
-    
-            </div>
-
-            <div class="usuarios">
-    
-                <div>
-                    <div>
-                        <p>Laura Port</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <p>laura@email.com</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <p>3349 6788</p>
-                    </div>
-                </div>
-    
-                <div>
-                    <button mat-raised-button class="editar">Editar</button>
-                    <button mat-raised-button class="excluir">Excluir</button>
-                </div>
-    
-            </div>
-    
         </div>
+
+        <div class="button">
+            <button mat-raised-button class="botao" (click)="salvarDadosUsuario()" [disabled]="!form.valid" *ngIf="!botaoEditar">Cadastrar</button>
+            <button mat-raised-button class="botao" (click)="editarUsuario()" *ngIf="botaoEditar">Editar</button>
+        </div>
+    </form>
+
+    <div class="usuarios_geral">
+
+        <div class="usuarios" *ngFor="let dado of usuarios; index as i; trackBy: trackUser">
+
+            <div>
+                <div>
+                    <p>{{dado.nome}}</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p>{{dado.email}}</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <p>{{dado.numero}}</p>
+                </div>
+            </div>
+
+            <div>
+                <button mat-raised-button class="editar" (click)="alterarDadosUsuario(dado)">Editar</button>
+                <button mat-raised-button class="excluir" [swal]="{
+                    title:'ATENÇÃO',
+                    text: 'Você realmente deseja excluir '+dado.nome+'?',
+                    showDenyButton: true,
+                    denyButtonText: 'não',
+                    confirmButtonText: 'sim',
+                    icon: 'warning'
+                }"(confirm)="excluir(dado.id)">Excluir</button>
+            </div>
+
+        </div>
+
+    </div>
 
 </main>
 

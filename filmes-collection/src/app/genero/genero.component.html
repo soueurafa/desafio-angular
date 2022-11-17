@@ -12,67 +12,48 @@
 
         <b>Cadastras Gênero</b>
 
-        <div class="cadastras_genero">
-            <table cellspacing="0">
-                <tr>
-                    <td>
-                        <mat-form-field class="tamanho_input" appearance="fill">
-                            <mat-label>Gênero</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </td>
-            </table>
+        <form [formGroup]="form">
 
-            <div>
-                <button mat-raised-button class="botao">Salvar</button>
+            <div class="cadastras_genero">
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="tamanho_input" appearance="fill">
+                                <mat-label>Gênero</mat-label>
+                                <input matInput formControlName="nome" required>
+                            </mat-form-field>
+                        </td>
+                </table>
+
+                <div>
+                    <button mat-raised-button class="botao" (click)="salvarDadosGenero()" [disabled]="!form.valid" *ngIf="!botaoEditar">Salvar</button>
+                    <button mat-raised-button class="botao" (click)="editarGenero()" *ngIf="botaoEditar">Editar</button>
+                </div>
             </div>
-        </div>
+        </form>
 
     </div>
 
     <div class="filmes_geral">
 
-        <div class="filmes">
+        <div class="filmes" *ngFor="let dado of genero; index as i; trackBy: trackUser">
 
             <div>
                 <div>
-                    <p>Terror</p>
+                    <p>{{dado.nome}}</p>
                 </div>
             </div>
 
             <div>
-                <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
-            </div>
-
-        </div>
-
-        <div class="filmes">
-
-            <div>
-                <div>
-                    <p>Ação</p>
-                </div>
-            </div>
-
-            <div>
-                <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
-            </div>
-
-        </div>
-
-        <div class="filmes">
-
-            <div>
-                <div>
-                    <p>Comédia</p>
-                </div>
-            </div>
-
-            <div>
-                <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
+                <button mat-raised-button class="editar" (click)="alterarDadosGenero(dado)">Editar</button>
+                <button mat-raised-button class="excluir" [swal]="{
+                    title:'ATENÇÃO',
+                    text: 'Você realmente deseja excluir '+dado.nome+'?',
+                    showDenyButton: true,
+                    denyButtonText: 'não',
+                    confirmButtonText: 'sim',
+                    icon: 'warning'
+                }"(confirm)="excluir(dado.id)">Excluir</button>
             </div>
 
         </div>

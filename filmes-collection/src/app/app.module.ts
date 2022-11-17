@@ -20,6 +20,11 @@ import { MatCardModule } from '@angular/material/card';
 import { FilmesComponent } from './filmes/filmes.component';
 import { GeneroComponent } from './genero/genero.component';
 import {MatSelectModule} from '@angular/material/select';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +47,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatInputModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,106 +13,65 @@
 
         <b>Cadastras Filmes</b>
 
-        <div class="cadastras_filmes">
-            <table cellspacing="0">
-                <tr>
-                    <td>
-                        <mat-form-field class="tamanho_input" appearance="fill">
-                            <mat-label>Título do Filme</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </td>
-            </table>
+        <form [formGroup]="form">
+            <div class="cadastras_filmes">
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="tamanho_input" appearance="fill">
+                                <mat-label>Título do Filme</mat-label>
+                                <input matInput formControlName="nome" required>
+                            </mat-form-field>
+                        </td>
+                </table>
 
-            <div>
-                <mat-form-field appearance="fill" class="tamanho_input">
-                    <mat-label>Gênero</mat-label>
-                    <mat-select disableRipple>
-                        <mat-option value="terror">Terror</mat-option>
-                        <mat-option value="ação">Ação</mat-option>
-                        <mat-option value="comedia">Comédia</mat-option>
-                        <mat-option value="romance">Romance</mat-option>
-                        <mat-option value="suspense">Suspense</mat-option>
-                        <mat-option value="ficçao_cientifica">ficção científica</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
+                <div>
+                    <mat-form-field appearance="fill" class="tamanho_input">
+                        <mat-label>Gênero</mat-label>
+                        <mat-select disableRipple formControlName="generoId" required>
+                            <mat-option [value]="dado.id" *ngFor="let dado of genero; index as i;">{{dado.nome}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
 
-            <div>
-                <button mat-raised-button class="botao">Salvar</button>
+                <div>
+                    <button mat-raised-button class="botao" (click)="salvarDadosFilme()" [disabled]="!form.valid">Salvar</button>
+                </div>
             </div>
-        </div>
+        </form>
 
     </div>
 
     <div class="filmes_geral">
 
-        <div class="filmes">
+        <div class="filmes" *ngFor="let dado of filmes; index as i; trackBy: trackUser">
 
             <div>
                 <div>
-                    <p>Os outros</p>
+                    <p>{{dado.nome}}</p>
                 </div>
             </div>
 
             <div>
                 <div>
-                    <p>Terror</p>
-                </div>
-            </div>
-
-            <div>
-                <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
-            </div>
-
-        </div>
-
-        <div class="filmes">
-
-            <div>
-                <div>
-                    <p>Até o último homem</p>
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <p>Ação</p>
+                    <p>{{dado.genero?.nome}}</p>
                 </div>
             </div>
 
             <div>
                 <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
+                <button mat-raised-button class="excluir" [swal]="{
+                    title:'ATENÇÃO',
+                    text: 'Você realmente deseja excluir '+dado.nome+'?',
+                    showDenyButton: true,
+                    denyButtonText: 'não',
+                    confirmButtonText: 'sim',
+                    icon: 'warning'
+                }"(confirm)="excluir(dado.id)">Excluir</button>
             </div>
 
         </div>
-
-        <div class="filmes">
-
-            <div>
-                <div>
-                    <p>O máscara</p>
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <p>Comédia</p>
-                </div>
-            </div>
-
-            <div>
-                <button mat-raised-button class="editar">Editar</button>
-                <button mat-raised-button class="excluir">Excluir</button>
-            </div>
-
-        </div>
-
     </div>
-
-
 </main>
 
 <app-footer></app-footer>
